@@ -84,6 +84,21 @@ export default defineConfig({
     //   provider: 'local',
     //   placeholder: '搜索文档'
     // }
+  },
+  transformHead({ assets }) {
+    // 1. 过滤出匹配 LXGW 的所有 woff2 文件
+    const fontFiles = assets.filter(file => /LXGW[\w-]*\.woff2$/.test(file))
+
+    // 2. 生成对应的 preload link
+    return fontFiles.map(file => [
+      'link',
+      {
+        rel: 'preload',
+        href: file,          // 比如 /assets/LXGWWenKai-Regular.abcd1234.woff2
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: ''      // 这一项不能漏，否则跨域加载会被浏览器忽略
+      }
+    ])
   }
-  
 })

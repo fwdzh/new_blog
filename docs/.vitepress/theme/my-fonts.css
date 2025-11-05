@@ -1,0 +1,6 @@
+/* .vitepress/theme/my-fonts.css */
+@import 'lxgw-wenkai-webfont/style.css';
+:root {
+  --vp-font-family-base: "LXGW Wenkai", sans-serif;
+  --vp-font-family-mono: "Jetbrains Mono", "LXGW Wenkai Mono", monospace;
+}
