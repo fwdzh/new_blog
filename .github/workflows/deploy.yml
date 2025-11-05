@@ -1,0 +1,48 @@
+name: Deploy VitePress to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main        # 你的网站主分支
+  workflow_dispatch:  # 允许手动触发
+
+permissions:
+  contents: write      # 用于 push gh-pages
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ 拉取完整仓库历史，保证 lastUpdated 精确
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2️⃣ 安装 Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3️⃣ 安装依赖
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ 构建 VitePress
+      - name: Build VitePress site
+        run: npm run docs:build
+
+      # 5️⃣ 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/.vitepress/dist
+          # 可选参数：
+          # publish_branch: gh-pages  # 默认 gh-pages，可指定其他
+          # user_name: 'Your Name'
+          # user_email: 'your-email@example.com'
