@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   lang: "zh-CN",
   title: "孙笑川258",
-  base: '/new_blog/',
+  base: '/',
   description: "A VitePress Site",
   markdown: {
     math: true
