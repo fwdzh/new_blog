@@ -9,6 +9,7 @@ export default defineConfig({
   markdown: {
     math: true
   },
+  lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/favicon.png',
