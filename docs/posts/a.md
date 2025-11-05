@@ -5,3 +5,9 @@ author: 陈晓即
 ---
 
 # tttt
+
+::: tip
+
+Ciallo
+
+:::
