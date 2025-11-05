@@ -9,6 +9,7 @@ export default defineConfig({
   markdown: {
     math: true
   },
+  cleanUrls: true,
   head : [
       ['link', 
         { rel : 'icon',
