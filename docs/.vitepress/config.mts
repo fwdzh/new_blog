@@ -9,10 +9,18 @@ export default defineConfig({
   markdown: {
     math: true
   },
+  head : [
+      ['link', 
+        { rel : 'icon',
+          href : 'favicon.png'
+        }
+      ]
+  ],
   lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/favicon.png',
+
     nav: [
       { text: '首页', link: '/' },
       // { text: 'Home', link: '/' },
