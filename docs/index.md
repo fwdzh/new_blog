@@ -47,7 +47,6 @@ function prevPage() {
 }
 </script>
 
-
 <p v-if="Posts && Posts.length">Total Posts: {{ Posts.length }}</p>
 <div v-if="Posts && Posts.length">
   <!-- <div v-for="post in Posts" :key="post.url" class="post-item">
