@@ -6,31 +6,47 @@ title: index
 
 <script setup>
 import { data as Posts } from './posts.data.js'
-import { ref, computed } from 'vue'
-// 每页显示多少篇文章
-const pageSize = 10
+import { ref, computed, onMounted } from 'vue'
 
-// 当前页
+const pageSize = 10
 const currentPage = ref(1)
 
-// 计算总页数
+// 初始化时从 URL 参数读取页码
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search)
+  const page = parseInt(params.get('page'))
+  if (page && page > 0) currentPage.value = page
+})
+
 const totalPages = computed(() => Math.ceil(Posts.length / pageSize))
 
-// 计算当前页要显示的文章
 const pagedPosts = computed(() => {
   const start = (currentPage.value - 1) * pageSize
   return Posts.slice(start, start + pageSize)
 })
 
 // 翻页函数
+function updateURL() {
+  const params = new URLSearchParams(window.location.search)
+  params.set('page', currentPage.value)
+  history.replaceState(null, '', `?${params.toString()}`)
+}
+
 function nextPage() {
-  if (currentPage.value < totalPages.value) currentPage.value++
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++
+    updateURL()
+  }
 }
 
 function prevPage() {
-  if (currentPage.value > 1) currentPage.value--
+  if (currentPage.value > 1) {
+    currentPage.value--
+    updateURL()
+  }
 }
 </script>
+
 
 <p v-if="Posts && Posts.length">Total Posts: {{ Posts.length }}</p>
 <div v-if="Posts && Posts.length">
