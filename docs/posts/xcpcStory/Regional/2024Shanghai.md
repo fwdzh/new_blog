@@ -13,7 +13,7 @@ title: 第 49 届 ICPC 国际大学生程序设计竞赛区域赛上海站
 
 VP时只通过了B C I ，最后的时间都在看 G 但是还是没能成功。昨晚又交了两个小时。看了题解加网上搜了一下说要注意负数整除的。。。加了一下过了。
 
-![maodie.gif](../../assets/maodie.gif)
+![maodie.gif](/maodie.gif)
 
 ## B
 
