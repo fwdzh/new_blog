@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme-without-fonts'
 import './my-fonts.css'
-import MyLayout from './MyLayout.vue'
+import MyLayout from './components/MyLayout.vue'
 
 export default {
   ...DefaultTheme,
