@@ -10,8 +10,8 @@ const formatDate = (dateString) => {
   const date = new Date(dateString)
   const year = date.getFullYear()
   const month = (date.getMonth() + 1).toString().padStart(2, '0') // 月份从 0 开始，补齐两位
-  const day = date.getDay().toString().padStart(2, '0')
-  return `${year}-${month}-${day}` 
+  const day = date.getDate().toString().padStart(2, '0') // getDay() 是返回星期几，这里需要 getDate()
+  return `${year}-${month}-${day}`
 }
 </script>
 
