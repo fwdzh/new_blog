@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-
+import arch from './arch.js'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
@@ -10,12 +10,13 @@ export default defineConfig({
     math: true
   },
   cleanUrls: true,
-  head : [
-      ['link', 
-        { rel : 'icon',
-          href : 'favicon.png'
-        }
-      ]
+  head: [
+    ['link',
+      {
+        rel: 'icon',
+        href: 'favicon.png'
+      }
+    ]
   ],
   lastUpdated: true,
   themeConfig: {
@@ -25,9 +26,11 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       // { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
-      { text: '测试', link : '/test/'}
+      { text: 'arch', link: '/notes/archlinux/index' }
     ],
+    sidebar: {
+      '/notes/archlinux/': arch
+    },
 
     // sidebar: [
     //   {
@@ -49,15 +52,15 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/fwdzh' },
       {
-      icon: {
-        svg: `<?xml version="1.0"?><svg role="img" viewBox="0 0 24 24" 
+        icon: {
+          svg: `<?xml version="1.0"?><svg role="img" viewBox="0 0 24 24" 
         xmlns="http://www.w3.org/2000/svg"><path d="M4.5 7.5C5.328 7.5 6 8.172 
         6 9v10.5c0 .828-.672 1.5-1.5 1.5h-3C.673 21 0 20.328 0 19.5V9c0-.828.673-1.5 
         1.5-1.5h3zm9-4.5c.828 0 1.5.672 1.5 1.5v15c0 .828-.672 1.5-1.5 1.5h-3c-.827 
         0-1.5-.672-1.5-1.5v-15c0-.828.673-1.5 1.5-1.5h3zm9 7.5c.828 0 1.5.672 1.5 1.5v7.5c0 
         .828-.672 1.5-1.5 1.5h-3c-.828 0-1.5-.672-1.5-1.5V12c0-.828.672-1.5 1.5-1.5h3z"/></svg>`
-      },
-      link: 'https://codeforces.com/profile/Zhangwuji'
+        },
+        link: 'https://codeforces.com/profile/Zhangwuji'
       }
     ],
     // 页面底部上下页链接文字 [citation:2]
