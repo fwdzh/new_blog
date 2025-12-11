@@ -3,9 +3,9 @@ import arch from './arch.js'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
-  title: "孙笑川258",
+  title: "Yoshino",
   base: '/',
-  description: "A VitePress Site",
+  description: "A vitePress blog",
   markdown: {
     math: true
   },
