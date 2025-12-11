@@ -198,13 +198,11 @@ git remote -v
 
 添加远程仓库并查看远程信息，若为 git@ 这样，则连上 ssh 了，以后推送就不需要输入密码了。
 
+![](https://image.wuyi.host/posts/20251211005554712.png)
+
 不过由于我们删除了先前的 origin 分支，下一次推送需要使用 `git push -u origin master`，然后之后还是 `git push` 就行。
 
-![](https://image.wuyi.host/posts/20251211005554712.png)
-
 ## 其他
-
-![](https://image.wuyi.host/posts/20251211005554712.png)
 
 GitHub 默认分支是 main，所以可能需要把这里的 `git push -u origin master` 改成 `git push -u orgin main`，可能还要用 `git branch` 切换分支到 main。
 
